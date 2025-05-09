@@ -1,4 +1,4 @@
-import { Button, Card, List } from "react-native-paper";
+import { Avatar, Button, Card, List, Text } from "react-native-paper";
 
 import ScreenWrapper from "@/src/components/ScreenWrapper";
 
@@ -20,11 +20,13 @@ const Home = () => {
   return (
     <ScreenWrapper style={{ justifyContent: "space-between" }}>
       <Card>
-        <List.Item
-          title={user?.name}
-          description={user?.email}
-          left={(props) => <List.Icon {...props} icon="account" />}
-        />
+        <Card.Content style={{ alignItems: "center" }}>
+          <Avatar.Icon size={104} icon="account" />
+          <Text variant="headlineLarge" style={{ marginVertical: 8 }}>
+            {user?.name}
+          </Text>
+          <Text variant="titleMedium">{user?.email}</Text>
+        </Card.Content>
       </Card>
       <Button icon={"logout"} mode="contained" onPress={_onLogoutPressed}>
         Logout
