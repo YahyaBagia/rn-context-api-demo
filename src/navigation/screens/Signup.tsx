@@ -60,7 +60,7 @@ const Signup = ({ navigation }) => {
   return (
     <ScreenWrapper style={styles.screen}>
       <Text variant="headlineLarge" style={styles.headline}>
-        Kloudious Signup.
+        Signup
       </Text>
 
       <TextInput

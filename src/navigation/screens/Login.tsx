@@ -52,7 +52,7 @@ const LoginScreen = ({ navigation }) => {
   return (
     <ScreenWrapper style={styles.screen}>
       <Text variant="headlineLarge" style={styles.headline}>
-        Kloudious Login.
+        Welcome
       </Text>
 
       <TextInput
@@ -81,7 +81,7 @@ const LoginScreen = ({ navigation }) => {
         left={<TextInput.Icon icon="lock-outline" />}
       />
 
-      <Button mode="contained" onPress={_onLoginPressed}>
+      <Button mode="contained" onPress={_onLoginPressed} icon={"login"}>
         Login
       </Button>
 
@@ -93,7 +93,7 @@ const LoginScreen = ({ navigation }) => {
       </View>
 
       <Button
-        style={{ position: "absolute", bottom: 20, right: 20 }}
+        style={styles.btnUserList}
         onPress={() => navigation.navigate("UserList")}
       >
         USER LIST
@@ -123,6 +123,11 @@ const styles = StyleSheet.create({
   },
   link: {
     fontWeight: "bold",
+  },
+  btnUserList: {
+    alignSelf: "center",
+    position: "absolute",
+    bottom: 22,
   },
 });
 
