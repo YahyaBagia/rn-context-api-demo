@@ -5,6 +5,7 @@ import * as Clipboard from "expo-clipboard";
 
 import ScreenWrapper from "@/src/components/ScreenWrapper";
 import { useAuth, User } from "@/src/context/AuthContext";
+import { useGlobalUI } from "@/src/context/GlobalUIContext";
 
 const UserList = () => {
   const { userList } = useAuth();
@@ -28,6 +29,7 @@ const UserItem: React.FC<IconUserItemProps> = (props) => {
   const { id, name, email, password } = user;
 
   const { deleteUser } = useAuth();
+  const { showAlert } = useGlobalUI();
 
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -36,15 +38,14 @@ const UserItem: React.FC<IconUserItemProps> = (props) => {
   const copyToClipboard = (text: string) => Clipboard.setStringAsync(text);
 
   const onDeleteUser = () => {
-    Alert.alert(
-      "Delete User",
-      "Are you sure you want to delete this user?",
-      [
-        { text: "Cancel", style: "cancel" },
-        { text: "OK", onPress: () => deleteUser(id) },
+    showAlert({
+      title: "Delete User",
+      message: "Are you sure you want to delete this user?",
+      buttons: [
+        { text: "Yes", onPress: () => deleteUser(id) },
+        { text: "Cancel" },
       ],
-      { cancelable: false }
-    );
+    });
   };
 
   return (

@@ -3,8 +3,8 @@ import {
   TouchableOpacity,
   StyleSheet,
   View,
-  Alert,
   TextInput as RNTextInput,
+  Keyboard,
 } from "react-native";
 import { Button, HelperText, Text, TextInput } from "react-native-paper";
 
@@ -14,6 +14,7 @@ import {
   passwordValidator,
 } from "@/src/core/utils";
 import { useAuth } from "@/src/context/AuthContext";
+import { useGlobalUI } from "@/src/context/GlobalUIContext";
 
 import ScreenWrapper from "@/src/components/ScreenWrapper";
 import PasswordInput from "@/src/components/PasswordInput";
@@ -27,6 +28,7 @@ const Signup = ({ navigation }) => {
   const txtPassword = useRef<RNTextInput>(null);
 
   const { signup } = useAuth();
+  const { showSnackBar, showAlert } = useGlobalUI();
 
   const _onSignupPressed = async () => {
     const nameError = nameValidator(name.value);
@@ -40,11 +42,18 @@ const Signup = ({ navigation }) => {
       return;
     }
 
+    Keyboard.dismiss();
+
     const success = await signup(name.value, email.value, password.value);
 
     if (!success) {
-      Alert.alert("Signup Failed", "Email already in use.", [{ text: "OK" }]);
-      return;
+      showAlert({
+        title: "Signup Failed",
+        message: "Email is already registered with us.",
+        buttons: [{ text: "OK" }],
+      });
+    } else {
+      showSnackBar({ message: "Signup Success" });
     }
   };
 

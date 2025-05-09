@@ -5,6 +5,7 @@ import {
   View,
   Alert,
   TextInput as RNTextInput,
+  Keyboard,
 } from "react-native";
 import { Button, HelperText, Text, TextInput } from "react-native-paper";
 
@@ -13,6 +14,7 @@ import PasswordInput from "@/src/components/PasswordInput";
 
 import { useAuth } from "@/src/context/AuthContext";
 import { emailValidator, passwordValidator } from "@/src/core/utils";
+import { useGlobalUI } from "@/src/context/GlobalUIContext";
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState({ value: "", error: "" });
@@ -20,6 +22,7 @@ const LoginScreen = ({ navigation }) => {
   const txtPassword = useRef<RNTextInput>(null);
 
   const { login } = useAuth();
+  const { showSnackBar, showAlert } = useGlobalUI();
 
   const _onLoginPressed = async () => {
     const emailError = emailValidator(email.value);
@@ -31,13 +34,18 @@ const LoginScreen = ({ navigation }) => {
       return;
     }
 
+    Keyboard.dismiss();
+
     const success = await login(email.value, password.value);
 
     if (!success) {
-      Alert.alert("Login Failed", "Invalid email or password.", [
-        { text: "OK" },
-      ]);
-      return;
+      showAlert({
+        title: "Login Failed",
+        message: "Invalid email or password.",
+        buttons: [{ text: "OK" }],
+      });
+    } else {
+      showSnackBar({ message: "Login Success" });
     }
   };
 

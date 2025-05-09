@@ -11,6 +11,7 @@ import { PaperProvider, MD3LightTheme, MD3DarkTheme } from "react-native-paper";
 import RootNavigator from "./navigation";
 import { AuthProvider } from "./context/AuthContext";
 import useIsDarkMode from "./hooks/useIsDarkMode";
+import { GlobalUIProvider } from "./context/GlobalUIContext";
 
 Asset.loadAsync([...NavigationAssets]);
 
@@ -20,11 +21,13 @@ const App = () => {
   const isDarkMode = useIsDarkMode();
   return (
     <PaperProvider theme={isDarkMode ? MD3DarkTheme : MD3LightTheme}>
-      <AuthProvider>
-        <NavigationContainer theme={isDarkMode ? DarkTheme : DefaultTheme}>
-          <RootNavigator />
-        </NavigationContainer>
-      </AuthProvider>
+      <GlobalUIProvider>
+        <AuthProvider>
+          <NavigationContainer theme={isDarkMode ? DarkTheme : DefaultTheme}>
+            <RootNavigator />
+          </NavigationContainer>
+        </AuthProvider>
+      </GlobalUIProvider>
     </PaperProvider>
   );
 };

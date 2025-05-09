@@ -1,22 +1,20 @@
 import { Button, Card, List } from "react-native-paper";
 
 import ScreenWrapper from "@/src/components/ScreenWrapper";
+
 import { useAuth } from "@/src/context/AuthContext";
-import { Alert } from "react-native";
+import { useGlobalUI } from "@/src/context/GlobalUIContext";
 
 const Home = () => {
   const { user, logout } = useAuth();
+  const { showAlert } = useGlobalUI();
 
   const _onLogoutPressed = () => {
-    Alert.alert(
-      "Logout",
-      "Are you sure you want to logout?",
-      [
-        { text: "Cancel", style: "cancel" },
-        { text: "OK", onPress: logout },
-      ],
-      { cancelable: false }
-    );
+    showAlert({
+      title: "Logout",
+      message: "Are you sure you want to logout?",
+      buttons: [{ text: "Yes", onPress: logout }, { text: "Cancel" }],
+    });
   };
 
   return (
