@@ -1,6 +1,7 @@
-import { Snackbar } from "react-native-paper";
+import { Snackbar, Text } from "react-native-paper";
 
 import { ISnackBarViewData } from "@/src/context/GlobalUIContext";
+import useIsDarkMode from "../hooks/useIsDarkMode";
 
 export interface ISnackBarViewProps {
   snackBarViewData?: ISnackBarViewData;
@@ -16,14 +17,17 @@ const SnackBarView: React.FC<ISnackBarViewProps> = (props) => {
     duration,
   } = snackBarViewData || {};
 
+  const isDarkMode = useIsDarkMode();
+
   return (
     <Snackbar
       visible={!!message}
       duration={duration}
       onDismiss={hideSnackBar}
       action={action}
+      style={{ backgroundColor: isDarkMode ? "#191919" : "white" }}
     >
-      {message}
+      <Text>{message}</Text>
     </Snackbar>
   );
 };
