@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "kloudious-auth",
-    "slug": "kloudious-auth",
+    "name": "rn-context-api-demo",
+    "slug": "rn-context-api-demo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
