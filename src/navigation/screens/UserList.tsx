@@ -89,6 +89,8 @@ const UserItem: React.FC<IconUserItemProps> = (props) => {
             icon={"delete"}
             style={styles.deleteButton}
             onPress={onDeleteUser}
+            buttonColor="tomato"
+            textColor="white"
           >
             Delete
           </Button>
@@ -101,6 +103,7 @@ const UserItem: React.FC<IconUserItemProps> = (props) => {
 const styles = StyleSheet.create({
   userItemCard: {
     marginVertical: 8,
+    marginHorizontal: 2,
   },
   listLeftIcon: {
     marginLeft: 12,
