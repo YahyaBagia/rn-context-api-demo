@@ -23,6 +23,7 @@ const PasswordInput = forwardRef<any, IPasswordInputProps>((props, ref) => {
             onPress={() => setPasswordVisible(!passwordVisible)}
           />
         }
+        autoComplete="password"
         autoCapitalize="none"
         textContentType="password"
         {...restOfProps}

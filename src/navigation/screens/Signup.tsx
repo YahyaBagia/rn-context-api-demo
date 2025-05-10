@@ -69,6 +69,7 @@ const Signup = ({ navigation }) => {
         value={name.value}
         onChangeText={(text) => setName({ value: text, error: "" })}
         error={!!name.error}
+        autoComplete="name"
         autoCapitalize="words"
         textContentType="name"
         onSubmitEditing={() => txtEmail.current?.focus()}
@@ -84,6 +85,7 @@ const Signup = ({ navigation }) => {
         value={email.value}
         onChangeText={(text) => setEmail({ value: text, error: "" })}
         error={!!email.error}
+        autoComplete="email"
         autoCapitalize="none"
         textContentType="emailAddress"
         keyboardType="email-address"

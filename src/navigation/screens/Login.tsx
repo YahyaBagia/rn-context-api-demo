@@ -61,6 +61,7 @@ const LoginScreen = ({ navigation }) => {
         value={email.value}
         onChangeText={(text) => setEmail({ value: text, error: "" })}
         error={!!email.error}
+        autoComplete="email"
         autoCapitalize="none"
         textContentType="emailAddress"
         keyboardType="email-address"
