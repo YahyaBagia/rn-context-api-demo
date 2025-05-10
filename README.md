@@ -1,65 +1,104 @@
-# Starter Template with React Navigation
+# rn-context-api-demo
 
-This is a minimal starter template for React Native apps using Expo and React Navigation.
+## Description
 
-It includes the following:
+React Native Context API Demo for Authentication
 
-- Example [Native Stack](https://reactnavigation.org/docs/native-stack-navigator) with a nested [Bottom Tab](https://reactnavigation.org/docs/bottom-tab-navigator)
-- Web support with [React Native for Web](https://necolas.github.io/react-native-web/)
-- TypeScript support and configured for React Navigation
-- Automatic deep link and URL handling configuration
-- Expo [Development Build](https://docs.expo.dev/develop/development-builds/introduction/) with [Continuous Native Generation](https://docs.expo.dev/workflow/continuous-native-generation/)
-- Edge-to-edge configured on Android with [`react-native-edge-to-edge`](https://www.npmjs.com/package/react-native-edge-to-edge)
-
-## Getting Started
-
-1. Create a new project using this template:
-
-   ```sh
-   npx create-expo-app@latest --template react-navigation/template
-   ```
-
-2. Edit the `app.json` file to configure the `name`, `slug`, `scheme` and bundle identifiers (`ios.bundleIdentifier` and `android.bundleIdentifier`) for your app.
-
-3. Edit the `src/App.tsx` file to start working on your app.
-
-## Running the app
-
-- Install the dependencies:
-
-  ```sh
-  npm install
-  ```
-
-- Start the development server:
-
-  ```sh
-  npm start
-  ```
-
-- Build and run iOS and Android development builds:
-
-  ```sh
-  npm run ios
-  # or
-  npm run android
-  ```
-
-- In the terminal running the development server, press `i` to open the iOS simulator, `a` to open the Android device or emulator, or `w` to open the web browser.
-
-## Notes
-
-This project uses a [development build](https://docs.expo.dev/develop/development-builds/introduction/) and cannot be run with [Expo Go](https://expo.dev/go). To run the app with Expo Go, edit the `package.json` file, remove the `expo-dev-client` package and `--dev-client` flag from the `start` script.
-
-We highly recommend using the development builds for normal development and testing.
-
-The `ios` and `android` folder are gitignored in the project by default as they are automatically generated during the build process ([Continuous Native Generation](https://docs.expo.dev/workflow/continuous-native-generation/)). This means that you should not edit these folders directly and use [config plugins](https://docs.expo.dev/config-plugins/) instead. However, if you need to edit these folders, you can remove them from the `.gitignore` file so that they are tracked by git.
-
-## Resources
-
-- [React Navigation documentation](https://reactnavigation.org/)
-- [Expo documentation](https://docs.expo.dev/)
+This demo app showcases how to implement authentication using React's Context API in a React Native environment. It uses `AsyncStorage` for persisting the user session and demonstrates login, signup, and logout flows with basic navigation.
 
 ---
 
-Demo assets are from [lucide.dev](https://lucide.dev/)
+## 📸 Screenshots
+
+| Login                                          | Signup                                          | Home                                          |
+| ---------------------------------------------- | ----------------------------------------------- | --------------------------------------------- |
+| ![Login](readme_assets/screenshots/Dark1.png)  | ![Signup](readme_assets/screenshots/Dark2.png)  | ![Home](readme_assets/screenshots/Dark3.png)  |
+| ![Login](readme_assets/screenshots/Light1.PNG) | ![Signup](readme_assets/screenshots/Light2.PNG) | ![Home](readme_assets/screenshots/Light3.PNG) |
+
+---
+
+## 🎥 Screen Recordings
+
+| Light Mode                                  | Dark Mode                                    |
+| ------------------------------------------- | -------------------------------------------- |
+| ![Light Mode](readme_assets/gifs/Light.gif) | ![Session Demo](readme_assets/gifs/Dark.gif) |
+
+---
+
+## ⚙️ Key Technologies Used
+
+| Technology                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| [React Native](https://reactnative.dev/)                                    | A framework for building native mobile apps using JavaScript and React.                                   |
+| [Expo](https://expo.dev)                                                    | A development platform that streamlines building and deploying React Native apps.                         |
+| [React Navigation](https://reactnavigation.org)                             | A routing and navigation library for React Native apps.                                                   |
+| [AsyncStorage](https://github.com/react-native-async-storage/async-storage) | A simple, unencrypted, asynchronous key-value storage system for persisting data locally in React Native. |
+| [Context API](https://react.dev/reference/react/createContext)              | A built-in React feature for managing global state across components.                                     |
+| [React Native Paper](https://reactnativepaper.com/)                         | A cross-platform UI component library that follows Material Design guidelines.                            |
+
+---
+
+## 🖥️ Environment setup
+
+### ✅ Quick steps:
+
+- Install [NodeJS](https://nodejs.org/en/)
+- Install [expo-cli](https://docs.expo.dev/more/expo-cli/) (`npm install -g expo-cli`)
+
+---
+
+## 🛠️ Setup Instructions
+
+### ⬇️ Clone repo
+
+```bash
+git clone https://github.com/YahyaBagia/rn-context-api-demo.git
+```
+
+### 🏁 Start Project
+
+```bash
+yarn start
+```
+
+### 📱 Run on iOS
+
+```bash
+yarn ios
+```
+
+### 📱 Run on Android
+
+```bash
+yarn android
+```
+
+---
+
+## 🧩 Explanation
+
+### 🔐 Authentication Features
+
+- **Login:** Validates user credentials from a local in-memory list stored in `AsyncStorage`.
+- **Signup:** Registers a new user (if not already existing) and appends them to the user list in `AsyncStorage`.
+- **Logout:** Clears the session and navigates back to the auth screens.
+- **Auto-login on App Launch:** Loads the persisted session if a user was previously logged in.
+
+### 🧠 Context API Integration
+
+- Auth state (`user`) and auth actions (`login`, `signup`, `logout`) are globally managed using React's Context API.
+- Auth state is accessible from any component via the `useAuth` hook.
+
+### 🧭 Navigation Flow
+
+- Uses React Navigation stack:
+  - `Login` and `Signup` when user is not logged in.
+  - `Home` screen once the user logs in or signs up.
+- Conditional rendering is handled in `RootNavigator`.
+
+---
+
+## 📌 Notes
+
+- This app does **not** use any backend or API. All user data is stored locally.
+- Passwords are stored in plaintext for demonstration purposes only.
