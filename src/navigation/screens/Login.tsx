@@ -72,7 +72,7 @@ const LoginScreen = ({ navigation }) => {
       </HelperText>
 
       <PasswordInput
-        returnKeyType="done"
+        returnKeyType="go"
         value={password.value}
         onChangeText={(text) => setPassword({ value: text, error: "" })}
         errorText={password.error}

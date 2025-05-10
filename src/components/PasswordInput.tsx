@@ -23,6 +23,8 @@ const PasswordInput = forwardRef<any, IPasswordInputProps>((props, ref) => {
             onPress={() => setPasswordVisible(!passwordVisible)}
           />
         }
+        autoCapitalize="none"
+        textContentType="password"
         {...restOfProps}
       />
       <HelperText type="error" visible={!!errorText}>

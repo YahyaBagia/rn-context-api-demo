@@ -1,9 +1,12 @@
 import { useEffect } from "react";
+import { Appbar } from "react-native-paper";
 import {
   createNativeStackNavigator,
   NativeStackHeaderProps,
 } from "@react-navigation/native-stack";
+import { useTheme } from "@react-navigation/native";
 import { getHeaderTitle } from "@react-navigation/elements";
+import * as SystemUI from "expo-system-ui";
 import * as SplashScreen from "expo-splash-screen";
 
 import Login from "./screens/Login";
@@ -12,12 +15,14 @@ import Home from "./screens/Home";
 import UserList from "./screens/UserList";
 
 import { useAuth } from "@/src/context/AuthContext";
-import { Appbar } from "react-native-paper";
 
 const Stack = createNativeStackNavigator();
 
 const RootNavigator = () => {
   const { user, loading } = useAuth();
+
+  const { colors } = useTheme();
+  const { background } = colors;
 
   useEffect(() => {
     if (loading === false) {
@@ -25,11 +30,18 @@ const RootNavigator = () => {
     }
   }, [loading]);
 
+  useEffect(() => {
+    SystemUI.setBackgroundColorAsync(background);
+  }, [background]);
+
   if (loading) return <></>;
 
   return (
     <Stack.Navigator
-      screenOptions={{ header: (props) => <AppBarView {...props} /> }}
+      screenOptions={{
+        header: (props) => <AppBarView {...props} />,
+        navigationBarColor: background,
+      }}
     >
       {!!user ? (
         <Stack.Screen name="Home" component={Home} />

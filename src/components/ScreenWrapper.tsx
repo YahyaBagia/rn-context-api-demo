@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
     width: "100%",
-    backgroundColor: "transparent",
+    height: "100%",
   },
   container: {
     flex: 1,

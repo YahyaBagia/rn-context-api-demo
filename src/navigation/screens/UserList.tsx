@@ -30,13 +30,16 @@ const UserItem: React.FC<IconUserItemProps> = (props) => {
   const { id, name, email, password } = user;
 
   const { deleteUser } = useAuth();
-  const { showAlert } = useGlobalUI();
+  const { showAlert, showSnackBar } = useGlobalUI();
 
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleExpand = () => setIsExpanded(!isExpanded);
 
-  const copyToClipboard = (text: string) => Clipboard.setStringAsync(text);
+  const copyToClipboard = (text: string) => {
+    Clipboard.setStringAsync(text);
+    showSnackBar({ message: "Copied to clipboard" });
+  };
 
   const onDeleteUser = () => {
     showAlert({
@@ -54,7 +57,9 @@ const UserItem: React.FC<IconUserItemProps> = (props) => {
       <List.Item
         title={name}
         left={() => <List.Icon icon="account" style={styles.listLeftIcon} />}
-        right={() => <List.Icon icon="chevron-down" />}
+        right={() => (
+          <List.Icon icon={isExpanded ? "chevron-up" : "chevron-down"} />
+        )}
         onPress={toggleExpand}
       />
       {isExpanded && (
