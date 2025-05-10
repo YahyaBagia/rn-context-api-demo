@@ -31,6 +31,7 @@ This demo app showcases how to implement authentication using React's Context AP
 | --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
 | [React Native](https://reactnative.dev/)                                    | A framework for building native mobile apps using JavaScript and React.                                   |
 | [Expo](https://expo.dev)                                                    | A development platform that streamlines building and deploying React Native apps.                         |
+| [TypeScript](http://typescriptlang.org/)                                    | A strongly typed programming language that builds on JavaScript, providing better tooling at any scale.   |
 | [React Navigation](https://reactnavigation.org)                             | A routing and navigation library for React Native apps.                                                   |
 | [AsyncStorage](https://github.com/react-native-async-storage/async-storage) | A simple, unencrypted, asynchronous key-value storage system for persisting data locally in React Native. |
 | [Context API](https://react.dev/reference/react/createContext)              | A built-in React feature for managing global state across components.                                     |
@@ -40,10 +41,9 @@ This demo app showcases how to implement authentication using React's Context AP
 
 ## 🖥️ Environment setup
 
-### ✅ Quick steps:
-
-- Install [NodeJS](https://nodejs.org/en/)
-- Install [expo-cli](https://docs.expo.dev/more/expo-cli/) (`npm install -g expo-cli`)
+- Install [NodeJS](https://nodejs.org/en/) from installer or via [Homebrew](https://formulae.brew.sh/formula/node) for MacOS/Linux or (Chocolatey)[https://community.chocolatey.org/packages/nodejs] for Windows.
+- Verify `node` and `npm` commands from terminal: `node -v && npm -v`.
+- (Optional) Install [`yarn`](https://yarnpkg.com/) package manager.
 
 ---
 
@@ -55,22 +55,20 @@ This demo app showcases how to implement authentication using React's Context AP
 git clone https://github.com/YahyaBagia/rn-context-api-demo.git
 ```
 
-### 🏁 Start Project
+### 📦 Install Packages
 
 ```bash
-yarn start
+yarn # or npm install
 ```
 
-### 📱 Run on iOS
+### 🏁 Run Project
 
 ```bash
-yarn ios
-```
-
-### 📱 Run on Android
-
-```bash
-yarn android
+yarn ios # launches iOS simulator
+# OR
+yarn android # launches Android emulator
+# OR
+yarn web # launches Web Browser
 ```
 
 ---
