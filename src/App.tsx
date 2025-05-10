@@ -25,18 +25,18 @@ SplashScreen.preventAutoHideAsync();
 const App = () => {
   const isDarkMode = useIsDarkMode();
   return (
-    <PaperProvider theme={isDarkMode ? MD3DarkTheme : MD3LightTheme}>
-      <GlobalUIProvider>
-        <AuthProvider>
-          <AppWrapper>
+    <AppWrapper>
+      <PaperProvider theme={isDarkMode ? MD3DarkTheme : MD3LightTheme}>
+        <GlobalUIProvider>
+          <AuthProvider>
             <NavigationContainer theme={isDarkMode ? DarkTheme : DefaultTheme}>
               <RootNavigator />
             </NavigationContainer>
             <StatusBar style={isDarkMode ? "light" : "dark"} />
-          </AppWrapper>
-        </AuthProvider>
-      </GlobalUIProvider>
-    </PaperProvider>
+          </AuthProvider>
+        </GlobalUIProvider>
+      </PaperProvider>
+    </AppWrapper>
   );
 };
 
