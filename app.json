@@ -33,6 +33,9 @@
         }
       ],
       "react-native-edge-to-edge"
-    ]
+    ],
+    "experiments": {
+      "baseUrl": "/rn-context-api-demo"
+    }
   }
 }
