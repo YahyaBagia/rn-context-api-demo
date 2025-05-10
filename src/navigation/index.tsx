@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { ActivityIndicator, View } from "react-native";
 import {
   createNativeStackNavigator,
   NativeStackHeaderProps,
@@ -26,13 +25,7 @@ const RootNavigator = () => {
     }
   }, [loading]);
 
-  if (loading) {
-    return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <ActivityIndicator size="large" />
-      </View>
-    );
-  }
+  if (loading) return <></>;
 
   return (
     <Stack.Navigator

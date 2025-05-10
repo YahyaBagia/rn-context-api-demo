@@ -1,4 +1,5 @@
-import { Avatar, Button, Card, List, Text } from "react-native-paper";
+import { StyleSheet } from "react-native";
+import { Avatar, Button, Card, Text } from "react-native-paper";
 
 import ScreenWrapper from "@/src/components/ScreenWrapper";
 
@@ -18,11 +19,11 @@ const Home = () => {
   };
 
   return (
-    <ScreenWrapper style={{ justifyContent: "space-between" }}>
+    <ScreenWrapper style={styles.screenWrapper}>
       <Card>
-        <Card.Content style={{ alignItems: "center" }}>
+        <Card.Content style={styles.cardContent}>
           <Avatar.Icon size={104} icon="account" />
-          <Text variant="headlineLarge" style={{ marginVertical: 8 }}>
+          <Text variant="headlineLarge" style={styles.nameText}>
             {user?.name}
           </Text>
           <Text variant="titleMedium">{user?.email}</Text>
@@ -34,5 +35,17 @@ const Home = () => {
     </ScreenWrapper>
   );
 };
+
+const styles = StyleSheet.create({
+  screenWrapper: {
+    justifyContent: "space-between",
+  },
+  cardContent: {
+    alignItems: "center",
+  },
+  nameText: {
+    marginVertical: 8,
+  },
+});
 
 export default Home;

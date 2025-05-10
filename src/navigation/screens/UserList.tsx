@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Alert, FlatList, View } from "react-native";
+import { Alert, FlatList, StyleSheet, View } from "react-native";
 import { Button, Card, Divider, List } from "react-native-paper";
 import * as Clipboard from "expo-clipboard";
 
 import ScreenWrapper from "@/src/components/ScreenWrapper";
+
 import { useAuth, User } from "@/src/context/AuthContext";
 import { useGlobalUI } from "@/src/context/GlobalUIContext";
 
@@ -49,10 +50,10 @@ const UserItem: React.FC<IconUserItemProps> = (props) => {
   };
 
   return (
-    <Card style={{ marginVertical: 8 }}>
+    <Card style={styles.userItemCard}>
       <List.Item
         title={name}
-        left={() => <List.Icon icon="account" style={{ marginLeft: 12 }} />}
+        left={() => <List.Icon icon="account" style={styles.listLeftIcon} />}
         right={() => <List.Icon icon="chevron-down" />}
         onPress={toggleExpand}
       />
@@ -63,7 +64,7 @@ const UserItem: React.FC<IconUserItemProps> = (props) => {
             title={"Email"}
             description={email}
             left={() => (
-              <List.Icon icon="email-outline" style={{ marginLeft: 12 }} />
+              <List.Icon icon="email-outline" style={styles.listLeftIcon} />
             )}
             right={() => <List.Icon icon="clipboard-outline" />}
             onPress={() => copyToClipboard(email)}
@@ -72,7 +73,7 @@ const UserItem: React.FC<IconUserItemProps> = (props) => {
             title={"Password"}
             description={password}
             left={() => (
-              <List.Icon icon="lock-outline" style={{ marginLeft: 12 }} />
+              <List.Icon icon="lock-outline" style={styles.listLeftIcon} />
             )}
             right={() => <List.Icon icon="clipboard-outline" />}
             onPress={() => copyToClipboard(password)}
@@ -81,7 +82,7 @@ const UserItem: React.FC<IconUserItemProps> = (props) => {
           <Button
             mode="contained"
             icon={"delete"}
-            style={{ margin: 8 }}
+            style={styles.deleteButton}
             onPress={onDeleteUser}
           >
             Delete
@@ -91,5 +92,17 @@ const UserItem: React.FC<IconUserItemProps> = (props) => {
     </Card>
   );
 };
+
+const styles = StyleSheet.create({
+  userItemCard: {
+    marginVertical: 8,
+  },
+  listLeftIcon: {
+    marginLeft: 12,
+  },
+  deleteButton: {
+    margin: 8,
+  },
+});
 
 export default UserList;
