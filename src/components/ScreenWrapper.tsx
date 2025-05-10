@@ -1,15 +1,15 @@
-import { memo } from "react";
 import {
   ImageBackground,
   StyleProp,
   StyleSheet,
-  View,
   ViewStyle,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+
+import useIsDarkMode from "@/src/hooks/useIsDarkMode";
 
 import BackgroundDotDark from "@/src/assets/BackgroundDot_Dark.png";
 import BackgroundDotLight from "@/src/assets/BackgroundDot_Light.png";
-import useIsDarkMode from "@/src/hooks/useIsDarkMode";
 
 type Props = {
   children: React.ReactNode;
@@ -24,7 +24,7 @@ const ScreenWrapper = ({ children, style }: Props) => {
       resizeMode="repeat"
       style={styles.backgroundImage}
     >
-      <View style={[styles.container, style]}>{children}</View>
+      <SafeAreaView style={[styles.container, style]}>{children}</SafeAreaView>
     </ImageBackground>
   );
 };
@@ -41,4 +41,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default memo(ScreenWrapper);
+export default ScreenWrapper;

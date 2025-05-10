@@ -126,9 +126,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   btnUserList: {
-    alignSelf: "center",
     position: "absolute",
-    bottom: 22,
+    top: 32,
+    right: 8,
   },
 });
 
