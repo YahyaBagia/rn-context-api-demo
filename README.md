@@ -10,18 +10,18 @@ This demo app showcases how to implement authentication using React's Context AP
 
 ## 📸 Screenshots
 
-| Login                                          | Signup                                          | Home                                          |
-| ---------------------------------------------- | ----------------------------------------------- | --------------------------------------------- |
-| ![Login](readme_assets/screenshots/Dark1.png)  | ![Signup](readme_assets/screenshots/Dark2.png)  | ![Home](readme_assets/screenshots/Dark3.png)  |
-| ![Login](readme_assets/screenshots/Light1.PNG) | ![Signup](readme_assets/screenshots/Light2.PNG) | ![Home](readme_assets/screenshots/Light3.PNG) |
+| Login                                                         | Signup                                                        | Home                                                          | Change Password                                               |
+| ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
+| <img src="readme_assets/screenshots/Dark1.jpg" width="200"/>  | <img src="readme_assets/screenshots/Dark2.jpg" width="200"/>  | <img src="readme_assets/screenshots/Dark3.jpg" width="200"/>  | <img src="readme_assets/screenshots/Dark4.jpg" width="200"/>  |
+| <img src="readme_assets/screenshots/Light1.PNG" width="200"/> | <img src="readme_assets/screenshots/Light2.PNG" width="200"/> | <img src="readme_assets/screenshots/Light3.PNG" width="200"/> | <img src="readme_assets/screenshots/Light4.PNG" width="200"/> |
 
 ---
 
 ## 🎥 Screen Recordings
 
-| Light Mode                                  | Dark Mode                                    |
-| ------------------------------------------- | -------------------------------------------- |
-| ![Light Mode](readme_assets/gifs/Light.gif) | ![Session Demo](readme_assets/gifs/Dark.gif) |
+| Light Mode                                                         | Dark Mode                                                         |
+| ------------------------------------------------------------------ | ----------------------------------------------------------------- |
+| <img src="readme_assets/gifs/Light.gif" width="400" height="920"/> | <img src="readme_assets/gifs/Dark.gif" width="400" height="920"/> |
 
 ---
 
@@ -41,7 +41,7 @@ This demo app showcases how to implement authentication using React's Context AP
 
 ## 🖥️ Environment setup
 
-- Install [NodeJS](https://nodejs.org/en/) from installer or via [Homebrew](https://formulae.brew.sh/formula/node) for MacOS/Linux or (Chocolatey)[https://community.chocolatey.org/packages/nodejs] for Windows.
+- Install [NodeJS](https://nodejs.org/en/) from installer or via [Homebrew](https://formulae.brew.sh/formula/node) for MacOS/Linux or [Chocolatey](https://community.chocolatey.org/packages/nodejs) for Windows.
 - Verify `node` and `npm` commands from terminal: `node -v && npm -v`.
 - (Optional) Install [`yarn`](https://yarnpkg.com/) package manager.
 
