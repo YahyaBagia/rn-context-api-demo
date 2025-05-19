@@ -84,15 +84,14 @@ yarn web # launches Web Browser
 
 ### 🧠 Context API Integration
 
-- Auth state (`user`) and auth actions (`login`, `signup`, `logout`) are globally managed using React's Context API.
+- Auth state (`user`, `userList`, `loading`) and auth actions (`login`, `signup`, `logout`, `deleteUser`, `changePassword`) are globally managed using React's Context API.
 - Auth state is accessible from any component via the `useAuth` hook.
 
 ### 🧭 Navigation Flow
 
-- Uses React Navigation stack:
-  - `Login` and `Signup` when user is not logged in.
-  - `Home` screen once the user logs in or signs up.
-- Conditional rendering is handled in `RootNavigator`.
+- Uses **`@react-navigation/native-stack`** with conditional routing.
+- **Unauthenticated users**: `Login`, `Signup` & `UserList`.
+- **Authenticated users**: `Home` & `ChangePassword`.
 
 ---
 

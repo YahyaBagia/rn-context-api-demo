@@ -65,13 +65,13 @@ const RootNavigator = () => {
             component={Signup}
             options={{ headerShown: false }}
           />
+          <Stack.Screen
+            name="UserList"
+            component={UserList}
+            options={{ title: "Users" }}
+          />
         </>
       )}
-      <Stack.Screen
-        name="UserList"
-        component={UserList}
-        options={{ title: "Users" }}
-      />
     </Stack.Navigator>
   );
 };
