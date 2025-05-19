@@ -13,8 +13,9 @@ import ScreenWrapper from "@/src/components/ScreenWrapper";
 import PasswordInput from "@/src/components/PasswordInput";
 
 import { useAuth } from "@/src/context/AuthContext";
-import { emailValidator, passwordValidator } from "@/src/core/utils";
 import { useGlobalUI } from "@/src/context/GlobalUIContext";
+
+import { emailValidator, passwordValidator } from "@/src/core/utils";
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState({ value: "", error: "" });

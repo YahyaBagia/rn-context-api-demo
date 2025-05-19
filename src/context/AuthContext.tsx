@@ -22,6 +22,10 @@ type AuthContextType = {
   signup: (name: string, email: string, password: string) => Promise<boolean>;
   logout: () => Promise<void>;
   deleteUser: (id: string) => Promise<void>;
+  changePassword: (
+    oldPassword: string,
+    newPassword: string
+  ) => Promise<boolean>;
   userList: User[];
   loading: boolean;
 };
@@ -133,9 +137,43 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     );
   };
 
+  const changePassword = async (
+    oldPassword: string,
+    newPassword: string
+  ): Promise<boolean> => {
+    const foundUser = userList.find(
+      (u) => u.id === user?.id && u.password === oldPassword
+    );
+
+    if (!foundUser) return false;
+
+    const updatedUserList = userList.map((u) => {
+      if (u.id === user?.id) {
+        return { ...u, password: newPassword };
+      }
+      return u;
+    });
+
+    setUserList(updatedUserList);
+    await AsyncStorage.setItem(
+      USER_LIST_STORAGE_KEY,
+      JSON.stringify(updatedUserList)
+    );
+    return true;
+  };
+
   return (
     <AuthContext.Provider
-      value={{ user, login, signup, logout, deleteUser, userList, loading }}
+      value={{
+        user,
+        login,
+        signup,
+        logout,
+        deleteUser,
+        userList,
+        loading,
+        changePassword,
+      }}
     >
       {children}
     </AuthContext.Provider>

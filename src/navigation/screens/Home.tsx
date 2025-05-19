@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { Avatar, Button, Card, Text } from "react-native-paper";
 
 import ScreenWrapper from "@/src/components/ScreenWrapper";
@@ -6,7 +6,7 @@ import ScreenWrapper from "@/src/components/ScreenWrapper";
 import { useAuth } from "@/src/context/AuthContext";
 import { useGlobalUI } from "@/src/context/GlobalUIContext";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   const { user, logout } = useAuth();
   const { showAlert } = useGlobalUI();
 
@@ -16,6 +16,10 @@ const Home = () => {
       message: "Are you sure you want to logout?",
       buttons: [{ text: "Yes", onPress: logout }, { text: "Cancel" }],
     });
+  };
+
+  const _onChangePasswordPressed = () => {
+    navigation.navigate("ChangePassword");
   };
 
   return (
@@ -29,9 +33,19 @@ const Home = () => {
           <Text variant="titleMedium">{user?.email}</Text>
         </Card.Content>
       </Card>
-      <Button icon={"logout"} mode="contained" onPress={_onLogoutPressed}>
-        Logout
-      </Button>
+      <View>
+        <Button
+          icon={"lock-outline"}
+          mode="contained"
+          onPress={_onChangePasswordPressed}
+          style={styles.btnChangePassword}
+        >
+          Change Password
+        </Button>
+        <Button icon={"logout"} mode="contained" onPress={_onLogoutPressed}>
+          Logout
+        </Button>
+      </View>
     </ScreenWrapper>
   );
 };
@@ -45,6 +59,9 @@ const styles = StyleSheet.create({
   },
   nameText: {
     marginVertical: 8,
+  },
+  btnChangePassword: {
+    marginBottom: 8,
   },
 });
 

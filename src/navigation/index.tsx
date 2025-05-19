@@ -13,6 +13,7 @@ import Login from "./screens/Login";
 import Signup from "./screens/Signup";
 import Home from "./screens/Home";
 import UserList from "./screens/UserList";
+import ChangePassword from "./screens/ChangePassword";
 
 import { useAuth } from "@/src/context/AuthContext";
 
@@ -44,7 +45,14 @@ const RootNavigator = () => {
       }}
     >
       {!!user ? (
-        <Stack.Screen name="Home" component={Home} />
+        <>
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen
+            name="ChangePassword"
+            component={ChangePassword}
+            options={{ title: "Change Password" }}
+          />
+        </>
       ) : (
         <>
           <Stack.Screen
