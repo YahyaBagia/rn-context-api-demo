@@ -54,34 +54,22 @@ const ChangePassword = () => {
         returnKeyType="next"
         value={oldPassword.value}
         onChangeText={(text) => setOldPassword({ value: text, error: "" })}
-        error={!!oldPassword.error}
-        autoComplete="password"
-        autoCapitalize="none"
-        textContentType="password"
+        errorText={oldPassword.error}
         onSubmitEditing={() => txtNewPassword.current?.focus()}
         left={<TextInput.Icon icon="lock-outline" />}
         ref={txtOldPassword}
       />
-      <HelperText type="error" visible={!!oldPassword.error}>
-        {oldPassword.error}
-      </HelperText>
 
       <PasswordInput
         label="New Password"
         returnKeyType="go"
         value={newPassword.value}
         onChangeText={(text) => setNewPassword({ value: text, error: "" })}
-        error={!!newPassword.error}
-        autoComplete="password"
-        autoCapitalize="none"
-        textContentType="password"
+        errorText={newPassword.error}
         onSubmitEditing={submitChangePassword}
         left={<TextInput.Icon icon="lock-outline" />}
         ref={txtNewPassword}
       />
-      <HelperText type="error" visible={!!newPassword.error}>
-        {newPassword.error}
-      </HelperText>
 
       <Button
         mode="contained"
