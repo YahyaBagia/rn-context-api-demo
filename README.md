@@ -21,7 +21,7 @@ This demo app showcases how to implement authentication using React's Context AP
 
 | Light Mode                                                         | Dark Mode                                                         |
 | ------------------------------------------------------------------ | ----------------------------------------------------------------- |
-| <img src="readme_assets/gifs/Light.gif" width="400" height="920"/> | <img src="readme_assets/gifs/Dark.gif" width="400" height="920"/> |
+| <img src="readme_assets/gifs/Light.gif" width="380" height="720"/> | <img src="readme_assets/gifs/Dark.gif" width="380" height="720"/> |
 
 ---
 
